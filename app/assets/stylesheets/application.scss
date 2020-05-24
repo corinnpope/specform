@@ -2,8 +2,11 @@
 // $light-orange: #ff8c00;
 // $navbar-default-color: $light-orange;
 
+
+@import "./actiontext.scss";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 @import "bootstrap";
 @import "jumpstart/sticky-footer";
 @import "jumpstart/announcements";

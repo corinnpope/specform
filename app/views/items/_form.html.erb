@@ -1,0 +1,172 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: 'form-control' %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= form.label "Mockup" %>
+    <%= form.file_field :mockup %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :release_date %>
+    <%= form.datetime_select :release_date, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :epic %>
+    <%= form.text_field :epic, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.text_field :status, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :owner %>
+    <%= form.text_field :owner, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :designer %>
+    <%= form.text_field :designer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :developer %>
+    <%= form.text_field :developer, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tech_lead %>
+    <%= form.text_field :tech_lead, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :qa %>
+    <%= form.text_field :qa, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :background %>
+    <%= form.rich_text_area :background, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :objective %>
+    <%= form.rich_text_area :objective, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :assumptions %>
+    <%= form.rich_text_area :assumptions, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :success %>
+    <%= form.rich_text_area :success, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :user_stories %>
+    <%= form.rich_text_area :user_stories, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :use_cases %>
+    <%= form.rich_text_area :use_cases, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :requirements %>
+    <%= form.rich_text_area :requirements, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :milestones %>
+    <%= form.rich_text_area :milestones, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :questions %>
+    <%= form.rich_text_area :questions, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :scope %>
+    <%= form.rich_text_area :scope, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :why %>
+    <%= form.rich_text_area :why, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :supporting_data %>
+    <%= form.rich_text_area :supporting_data, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :inspiration %>
+    <%= form.rich_text_area :inspiration, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :dependencies %>
+    <%= form.rich_text_area :dependencies, class: 'form-control bigger-form' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :risks %>
+    <%= form.rich_text_area :risks, class: 'form-control bigger-form' %>
+  </div>
+
+  <%= form.hidden_field(:user_id, :value => current_user.id) %>
+
+  <div class="form-group">
+    <% if item.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', item, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary p-20' %>
+
+    <% if item.persisted? %>
+      <%= link_to "Cancel", item, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", items_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>
+
+
+<style>
+.bigger-form {
+  height: 100px;
+  resize: height:
+}
+</style>

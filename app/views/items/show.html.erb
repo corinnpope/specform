@@ -1,0 +1,107 @@
+<div class="page-header">
+  <%= link_to items_path, class: 'btn btn-default' do %>
+    All Items
+  <% end %>
+  <%= link_to edit_item_path(@item), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <%= link_to item_path(@item, format: :pdf), class: "btn btn-secondary", title: "Download PDF Version" do %>
+    <i class="far fa-file-pdf"></i> Download PDF
+  <% end %>
+  <h1><%= @item.name %></h1>
+  <h3><%= @item.description %></h3>
+</div>
+
+  <dt>Key Info:</dt>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Release Date</th>
+            <th>Epic</th>
+            <th>Status</th
+      </tr>
+    </thead>
+
+    <tbody>
+      <td><%= @item.release_date %></td>
+      <td><%= @item.epic %></td>
+      <td><%= @item.status %></td>
+    </tbody>
+  </table>
+</div>
+
+<dt>Responsible Parties:</dt>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Owner</th>
+            <th>Designer</th>
+            <th>Developer</th>
+            <th>Tech Lead</th>
+            <th>QA</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <td><%= @item.owner %></td>
+      <td><%= @item.designer %></td>
+      <td><%= @item.developer %></td>
+      <td><%= @item.tech_lead %></td>
+      <td><%= @item.qa %></td>
+    </tbody>
+  </table>
+</div>
+
+  <dt>Mockup:</dt>
+  <% if @item.mockup.attached? %>
+    <dd><%= image_tag @item.mockup, style:"max-width: 200px" %></dd>
+    <%= link_to "view mockup", url_for(@item.mockup) %>
+  <% else %>
+    <dd>No mockup attached</dd>
+  <% end %>
+
+  <dt>Background:</dt>
+  <dd><%= @item.background %></dd>
+
+  <dt>Objective:</dt>
+  <dd><%= @item.objective %></dd>
+
+  <dt>Assumptions:</dt>
+  <dd><%= @item.assumptions %></dd>
+
+  <dt>Success:</dt>
+  <dd><%= @item.success %></dd>
+
+  <dt>User stories:</dt>
+  <dd><%= @item.user_stories %></dd>
+
+  <dt>Use cases:</dt>
+  <dd><%= @item.use_cases %></dd>
+
+  <dt>Requirements:</dt>
+  <dd><%= @item.requirements %></dd>
+
+  <dt>Milestones:</dt>
+  <dd><%= @item.milestones %></dd>
+  
+  <dt>Questions:</dt>
+  <dd><%= @item.questions %></dd>
+
+  <dt>Scope:</dt>
+  <dd><%= @item.scope %></dd>
+
+  <dt>Supporting data:</dt>
+  <dd><%= @item.supporting_data %></dd>
+
+  <dt>Inspiration:</dt>
+  <dd><%= @item.inspiration %></dd>
+
+  <dt>Dependencies:</dt>
+  <dd><%= @item.dependencies %></dd>
+
+  <dt>Risks:</dt>
+  <dd><%= @item.risks %></dd>
+
+</dl>

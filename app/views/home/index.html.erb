@@ -1,2 +1,82 @@
-<h1>Welcome to Jumpstart!</h1>
-<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Write Better, Prettier Specs</h1>
+    <p class="lead">A handy little tool to help you write specs, PRDs, whatever you want to call them. Built out of my own laziness and fear of flashing cursors and empty pages.</p>
+    <p class="lead">
+      <%= link_to "Start writing yours fo' free", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Write Your Specs</h5>
+        <p class="card-text">All the fields you could possibly need are there, so you won't forget anything important.</p>
+        
+      <%= link_to "Write better specs", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Save them as Pretty PDFs</h5>
+        <p class="card-text">Once you're done with your specs, save them as a nicely formatted PDF. Share them with your very grateful engineering team.</p>
+        
+      <%= link_to "Make pretty specs", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container m-10">
+  <h3 style="margin-top: 150px; margin-bottom: 50px;">
+    No Fancy Feature Here<br />
+    <small class="text-muted">Just the basics to kick you off</small>
+  </h3>
+</div>
+
+<div class="container m-10">
+  <div class="row mt-6 py-10">
+    <div class="col">
+      <h3>Manage your specs</h3>
+    </div>
+    <div class="col">
+      <%= image_tag("manage_spec.png", class:"img-fluid p-4") %>
+    </div>
+  </div>
+</div>
+
+<div class="container m-10">
+  <div class="row mt-6 pb-10">
+    <div class="col">
+      <h3>Edit your specs</h3>
+    </div>
+    <div class="col">
+      <%= image_tag("edit_spec.png", class:"img-fluid p-4") %>
+    </div>
+  </div>
+</div>
+
+<div class="container m-10">
+  <div class="row mt-6 pb-10">
+    <div class="col">
+      <h3>Export your specs</h3>
+    </div>
+    <div class="col">
+      <%= image_tag("pdf_spec.png", class:"img-fluid p-4") %>
+    </div>
+  </div>
+
+  <div class="row mt-6">
+    <div class="col">
+      <h3>View your specs</h3>
+    </div>
+    <div class="col">
+      <%= image_tag("show_spec.png", class:"img-fluid p-4") %>
+    </div>
+  </div>
+</div>

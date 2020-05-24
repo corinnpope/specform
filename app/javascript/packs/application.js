@@ -3,6 +3,8 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require("trix")
+require("@rails/actiontext")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -13,8 +15,14 @@ window.Rails = Rails
 
 import 'bootstrap'
 import 'data-confirm-modal'
+import "controllers"
 
 $(document).on("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()
   $('[data-toggle="popover"]').popover()
 })
+
+
+
+
+

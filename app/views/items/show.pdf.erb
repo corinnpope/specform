@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/97c093f09e.js" crossorigin="anonymous"></script>
+
+    <style>
+
+        .flex-container {
+            -webkit-display: -webkit-box;
+            -webkit-display: -webkit-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            flex-direction: column;
+            -webkit-flex-wrap: wrap;
+            
+        }
+        .flex-item {
+            /* **display: inline-block;** (To wrap on new line) */
+            margin: 5px;
+            font-size: 17px;
+            text-align: left;
+        }
+
+    </style>
+  </head>
+  <body class="m-8">
+
+      <div class="my-6">
+        <h3 class="text-xl uppercase leading-6 font-bold text-gray-900"><%= @item.name %></h3>
+        <p class="mt-1 text-sm leading-5 text-gray-500"><%= @item.description %></p>
+      </div>
+
+      <div class="align-middle inline-block shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+        <table class="min-w-full">
+          <thead>
+            <tr>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Release Date</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Epic</th>
+                  <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Status</th
+            </tr>
+          </thead>
+
+          <tbody>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.release_date %></td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.epic %></td>
+            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.status %></td>
+          </tbody>
+        </table>
+      </div>
+      <div class="align-middle inline-block shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
+        <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Responsible Parties:</dt>
+        <div class="table-responsive">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Owner</th>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Designer</th>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Developer</th>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Tech Lead</th>
+                    <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">QA</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.owner %></td>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.designer %></td>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.developer %></td>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.tech_lead %></td>
+              <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 font-medium text-gray-900"><%= @item.qa %></td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="flex-item">
+        <dl>
+          <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Mockup:</dt>
+          <% if @item.mockup.attached? %>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= link_to "view mockup", url_for(@item.mockup) %></dd>
+          <% else %>
+            <dd class="mt-1 text-sm leading-5 text-gray-900">No mockup attached</dd>
+          <% end %>
+        
+          <% unless @item.background.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Background:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.background %></dd>
+          <% end %>
+          <% unless @item.objective.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Objective:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.objective %></dd>
+          <% end %>
+          <% unless @item.assumptions.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Assumptions:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.assumptions %></dd>
+          <% end %>
+          <% unless @item.success.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Success:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.success %></dd>
+          <% end %>
+          <% unless @item.user_stories.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">User stories:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.user_stories %></dd>
+          <% end %>
+          <% unless @item.use_cases.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Use cases:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.use_cases %></dd>
+          <% end %>
+          <% unless @item.requirements.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Requirements:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.requirements %></dd>
+          <% end %>
+          <% unless @item.milestones.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Milestones:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.milestones %></dd>
+          <% end %>
+          <% unless @item.questions.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Questions:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.questions %></dd>
+          <% end %>
+          <% unless @item.scope.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Scope:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.scope %></dd>
+          <% end %>
+          <% unless @item.supporting_data.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Supporting data:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.supporting_data %></dd>
+          <% end %>
+          <% unless @item.inspiration.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Inspiration:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.inspiration %></dd>
+          <% end %>
+          <% unless @item.dependencies.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Dependencies:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.dependencies %></dd>
+          <% end %>
+          <% unless @item.risks.blank? %>
+            <dt class="uppercase text-sm leading-5 font-bold text-gray-500 pt-4 pb-2">Risks:</dt>
+            <dd class="mt-1 text-sm leading-5 text-gray-900"><%= @item.risks %></dd>
+          <% end %>
+        </dl>
+      </div>
+  </body>
+</html>
